@@ -1,0 +1,21 @@
+<div class="sidebar">
+    <ng-container *ngIf="currentSetting?.active && !showUpcoming">
+        <button (click)="addUpcomingBooking()">Add New Setting</button>
+    </ng-container>
+    <p>
+        <ng-container *ngIf="!currentSetting?.active || showUpcoming">
+            <label for="active">Active</label>
+        </ng-container>
+    </p>
+    <p>
+        <ng-container *ngIf="currentSetting?.active && showUpcoming">
+            <label for="upcoming">Upcoming</label>
+        </ng-container>
+    </p>
+</div>
+
+<div class="form">
+    <ng-container *ngIf="!currentSetting?.active || showUpcoming">
+        Form Displayed Here
+    </ng-container>
+</div>

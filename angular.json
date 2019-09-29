@@ -1,0 +1,138 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "date-setting-manager": {
+      "root": "projects/date-setting-manager/",
+      "sourceRoot": "projects/date-setting-manager/src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/date-setting-manager",
+            "index": "projects/date-setting-manager/src/index.html",
+            "main": "projects/date-setting-manager/src/main.ts",
+            "polyfills": "projects/date-setting-manager/src/polyfills.ts",
+            "tsConfig": "projects/date-setting-manager/tsconfig.app.json",
+            "assets": [
+              "projects/date-setting-manager/src/favicon.ico",
+              "projects/date-setting-manager/src/assets"
+            ],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/purple-green.css",
+              "projects/date-setting-manager/src/styles.css"
+            ],
+            "scripts": [],
+            "es5BrowserSupport": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/date-setting-manager/src/environments/environment.ts",
+                  "with": "projects/date-setting-manager/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "date-setting-manager:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "date-setting-manager:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "date-setting-manager:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/date-setting-manager/src/test.ts",
+            "polyfills": "projects/date-setting-manager/src/polyfills.ts",
+            "tsConfig": "projects/date-setting-manager/tsconfig.spec.json",
+            "karmaConfig": "projects/date-setting-manager/karma.conf.js",
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/purple-green.css",
+              "projects/date-setting-manager/src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/date-setting-manager/src/favicon.ico",
+              "projects/date-setting-manager/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/date-setting-manager/tsconfig.app.json",
+              "projects/date-setting-manager/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "date-setting-manager-e2e": {
+      "root": "projects/date-setting-manager-e2e/",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/date-setting-manager-e2e/protractor.conf.js",
+            "devServerTarget": "date-setting-manager:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "date-setting-manager:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "projects/date-setting-manager-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "date-setting-manager"
+}
