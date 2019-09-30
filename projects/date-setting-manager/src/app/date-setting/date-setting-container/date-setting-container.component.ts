@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable, timer } from 'rxjs';
 import { Setting } from '../../date-settings/date-settings.model';
 import { DateSettingService } from '../date-setting.service';
-import { pluck, mapTo, tap, takeUntil } from 'rxjs/operators';
+import { pluck, mapTo, tap, takeUntil, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-date-setting-container',
@@ -16,8 +16,8 @@ export class DateSettingContainerComponent implements OnInit {
   constructor(private dateSettingService: DateSettingService) { }
 
   ngOnInit() {
-    timer(0, 5000).pipe(
-      tap(() => this.currentSetting$ = this.dateSettingService.getSetting())
+    timer(0, 20000).pipe(
+      tap(() => this.currentSetting$ = this.dateSettingService.getSetting().pipe(map(response => new Setting(response.active, response.upcoming))))
     ).subscribe();
   }
 }

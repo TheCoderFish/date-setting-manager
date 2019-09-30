@@ -16,6 +16,20 @@
 
 <div class="form">
     <ng-container *ngIf="!currentSetting?.active || showUpcoming">
-        Form Displayed Here
+        <form [formGroup]="bookingForm">
+            <mat-form-field class="example-full-width">
+                <label for="bookableDays">Future Bookable Days</label>
+                <input id="bookableDays" matInput type="number" formControlName="bookableDays"
+                    placeholder="Future Bookable Days">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <label for="bookableDays">Effective From</label>
+                <input matInput [matDatepickerFilter]="dateFilter" [matDatepicker]="picker"
+                    formControlName="effectiveFrom">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <button (click)="save()" type="button">Save</button>
+        </form>
     </ng-container>
 </div>

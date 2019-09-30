@@ -13,6 +13,6 @@ export class DateSettingService {
 
     public getSetting(): Observable<Setting> {
         const url = `${this.baseUrl}/setting`
-        return this.http.get(url);
+        return this.http.get<Setting>(url);
     }
 }
