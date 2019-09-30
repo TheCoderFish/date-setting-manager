@@ -1,21 +1,21 @@
 <div class="sidebar">
-    <ng-container *ngIf="currentSetting?.active && !showUpcoming">
+    <ng-container *ngIf="currentSetting?.active && !showUpcoming && !currentSetting?.upcoming">
         <button (click)="addUpcomingBooking()">Add New Setting</button>
     </ng-container>
     <p>
-        <ng-container *ngIf="!currentSetting?.active || showUpcoming">
+        <ng-container *ngIf="!currentSetting?.active || showUpcoming || currentSetting?.upcoming">
             <label for="active">Active</label>
         </ng-container>
     </p>
     <p>
-        <ng-container *ngIf="currentSetting?.active && showUpcoming">
+        <ng-container *ngIf="currentSetting?.active && showUpcoming || currentSetting?.upcoming">
             <label for="upcoming">Upcoming</label>
         </ng-container>
     </p>
 </div>
 
 <div class="form">
-    <ng-container *ngIf="!currentSetting?.active || showUpcoming">
+    <ng-container *ngIf="!currentSetting?.active || showUpcoming ">
         <form [formGroup]="bookingForm">
             <mat-form-field class="example-full-width">
                 <label for="bookableDays">Future Bookable Days</label>

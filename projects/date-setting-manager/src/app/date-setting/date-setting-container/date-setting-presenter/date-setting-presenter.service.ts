@@ -1,13 +1,20 @@
 import { Injectable } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Setting, Booking } from '../../../date-settings/date-settings.model';
+import { Setting, Booking } from '../../date-setting.model';
+import { Subject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DateSettingPresenterService {
 
-  constructor(private fb: FormBuilder) { }
+  private save: Subject<Setting>;
+  public save$: Observable<Setting>;
+
+  constructor(private fb: FormBuilder) {
+    this.save = new Subject<Setting>();
+    this.save$ = this.save.asObservable();
+  }
 
 
   public buildForm(): FormGroup {
@@ -27,5 +34,21 @@ export class DateSettingPresenterService {
     const effectiveDate = new Date(activeSetting.effectiveFrom);
     const bookableDays = activeSetting.bookableDays + 1;
     return d > new Date(effectiveDate.getTime() + 86400000 * bookableDays);
+  }
+
+  public saveBooking(bookingForm: FormGroup, currentSetting: Setting) {
+    if (bookingForm.valid) {
+      let booking: Booking = new Booking();
+      booking = bookingForm.getRawValue();
+      if (!currentSetting.active) {
+        let setting: Setting = new Setting(booking, null);
+        this.save.next(setting);
+      } else {
+        let setting: Setting = new Setting(currentSetting.active, booking);
+        this.save.next(setting);
+      }
+    } else {
+      //invalid form, throw error
+    }
   }
 }
