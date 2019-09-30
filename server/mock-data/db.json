@@ -1,9 +1,3 @@
 {
-  "setting": {
-    "active": {
-      "bookableDays": 5,
-      "effectiveFrom": "2019-10-04T18:30:00.000Z"
-    },
-    "upcoming": null
-  }
+  "setting": {}
 }
