@@ -38,9 +38,6 @@ export class DateSettingPresentationComponent implements OnInit {
   @Output()
   private saveBooking: EventEmitter<Setting>;
 
-  @ViewChild('mat-datepicker-toggle', { read: TemplateRef })
-  private toggleButton;
-
   constructor(private dateSettingPresenter: DateSettingPresenterService) {
     this.saveBooking = new EventEmitter<Setting>();
   }
@@ -69,6 +66,5 @@ export class DateSettingPresentationComponent implements OnInit {
 
   public save() {
     this.dateSettingPresenter.saveBooking(this.bookingForm, this.currentSetting);
-
   }
 }

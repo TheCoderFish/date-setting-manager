@@ -16,7 +16,7 @@ export class DateSettingContainerComponent implements OnInit {
   constructor(private dateSettingService: DateSettingService) { }
 
   ngOnInit() {
-    timer(0, 20000).pipe(
+    timer(0, 4000).pipe(
       tap(() => this.currentSetting$ = this.dateSettingService.getSetting().pipe(map(response => new Setting(response.active, response.upcoming))))
     ).subscribe();
   }

@@ -32,7 +32,7 @@ export class DateSettingPresenterService {
 
   public filterDateUpcoming(d: Date, activeSetting: Booking) {
     const effectiveDate = new Date(activeSetting.effectiveFrom);
-    const bookableDays = activeSetting.bookableDays + 1;
+    const bookableDays = activeSetting.bookableDays;
     return d > new Date(effectiveDate.getTime() + 86400000 * bookableDays);
   }
 
