@@ -21,6 +21,15 @@ export class DateSettingFormPresentationComponent implements OnInit {
   public set currentSetting(value: Setting) {
     if (value) {
       this._currentSetting = value;
+      //not sure if this belongs here or i should move it into the subscription 
+      try {
+        if (this.currentSetting.active) {
+          if (!this.bookingForm.value.bookableDays) {
+            this.bookingForm = this.dateSettingFormPresenter.bindValue(value.active, this.bookingForm);
+          }
+        }
+      } catch (e) {
+      }
     }
   }
 

@@ -1,25 +1,11 @@
-<p>home-presentation</p>
-
-
-<!-- <div class="sidebar">
-    <p>
-    <ng-container *ngIf="!currentSetting?.active || currentSetting?.upcoming">
-      <label for="active">Active</label>
-    </ng-container>
-  </p>
-  <p>
-    <ng-container *ngIf="currentSetting?.active || currentSetting?.upcoming">
-      <label for="upcoming">Upcoming</label>
-    </ng-container>
-  </p>
-</div> -->
-<div>
-  <label for="active" routerLink="add-booking">Active</label>
-</div>
-<ng-container *ngIf="currentSetting?.active">
+<div class="sidebar">
   <div>
-    <label for="active" routerLink="add-booking">Upcoming</label>
+    <label for="active" routerLink="add-booking">Active</label>
   </div>
-</ng-container>
-
+  <ng-container *ngIf="currentSetting?.active">
+    <div>
+      <label for="active" routerLink="add-booking">Upcoming</label>
+    </div>
+  </ng-container>
+</div>
 <router-outlet></router-outlet>

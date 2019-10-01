@@ -18,6 +18,9 @@ export class HomePresentationComponent implements OnInit {
     if (value) {
       this._currentSetting = value;
       this.homePresenterService.saveSetting(value);
+    }else{
+      console.log('?');
+      
     }
   }
 

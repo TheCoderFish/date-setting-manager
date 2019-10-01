@@ -50,9 +50,10 @@ export class DateSettingFormPresenterService {
     }
   }
 
-
-  public say0() {
-    //this.save.next(new Setting(new Booking(1, new Date()), null));
-    this.testObs = of(1, 2, 3);
+  public bindValue(booking: Booking, form: FormGroup) {
+    if (booking) {
+      form.patchValue(booking);
+    }
+    return form;
   }
 }
