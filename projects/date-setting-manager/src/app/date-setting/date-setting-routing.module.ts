@@ -4,13 +4,14 @@ import { DateSettingContainerComponent } from './date-setting-container/date-set
 import { HomeContainerComponent } from './home-container/home-container.component';
 import { TestComponent } from './test/test.component';
 import { BookingSuccessComponent } from './booking-success/booking-success.component';
+import { DateSettingFormContainerComponent } from './date-setting-form-container/date-setting-form-container.component';
 
 const routes: Routes = [
   {
     path: '', component: HomeContainerComponent,
     children: [
       {
-        path: 'add-booking', component: DateSettingContainerComponent,
+        path: 'add-booking', component: DateSettingFormContainerComponent,
       }, {
         path: 'booking-success', component: BookingSuccessComponent
       }

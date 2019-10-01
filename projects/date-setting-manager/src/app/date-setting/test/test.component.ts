@@ -14,7 +14,7 @@ export class TestComponent implements OnInit {
 
   public get activeDate() {
     try {
-      return new Date(this.currentSetting.active.effectiveFrom);
+      return new Date();
     } catch (e) {
       return null;
     }

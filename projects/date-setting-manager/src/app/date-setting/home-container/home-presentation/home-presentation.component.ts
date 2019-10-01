@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
 import { Setting } from '../../date-setting.model';
 import { HomePresenterService } from '../home-presenter/home-presenter.service';
-import { DateSettingPresenterService } from '../../date-setting-container/date-setting-presenter/date-setting-presenter.service';
+import { DateSettingFormPresenterService } from '../../date-setting-form-container/date-setting-form-presenter/date-setting-form-presenter.service';
 
 @Component({
   selector: 'app-home-presentation-ui',
@@ -17,6 +17,7 @@ export class HomePresentationComponent implements OnInit {
   public set currentSetting(value: Setting) {
     if (value) {
       this._currentSetting = value;
+      this.homePresenterService.saveSetting(value);
     }
   }
 
@@ -27,7 +28,7 @@ export class HomePresentationComponent implements OnInit {
   private _currentSetting: Setting = {};
 
 
-  constructor(private homePresenterService: HomePresenterService) {
+  constructor(private homePresenterService: HomePresenterService, private dateSettingFormPresenter: DateSettingFormPresenterService) {
   }
 
   ngOnInit() {

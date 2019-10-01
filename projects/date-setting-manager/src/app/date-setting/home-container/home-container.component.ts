@@ -17,7 +17,9 @@ export class HomeContainerComponent implements OnInit {
 
   ngOnInit() {
     timer(0, 3000).pipe(
-      tap(() => this.currentSetting$ = this.dateSettingService.getSetting().pipe(map(response => new Setting(response.active, response.upcoming)))))
+      tap(() => this.currentSetting$ = this.dateSettingService.getSetting().pipe(map(response => new Setting(response.active, response.upcoming)))
+      )
+    ).subscribe();
   }
 
 }

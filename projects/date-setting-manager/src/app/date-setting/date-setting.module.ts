@@ -11,6 +11,8 @@ import { HomeContainerComponent } from './home-container/home-container.componen
 import { HomePresentationComponent } from './home-container/home-presentation/home-presentation.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BookingSuccessComponent } from './booking-success/booking-success.component';
+import { DateSettingFormContainerComponent } from './date-setting-form-container/date-setting-form-container.component';
+import { DateSettingFormPresentationComponent } from './date-setting-form-container/date-setting-form-presentation/date-setting-form-presentation.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { BookingSuccessComponent } from './booking-success/booking-success.compo
     TestComponent,
     HomeContainerComponent,
     HomePresentationComponent,
-    BookingSuccessComponent
+    BookingSuccessComponent,
+    DateSettingFormContainerComponent,
+    DateSettingFormPresentationComponent
   ],
   imports: [
     CommonModule,
