@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable, timer } from 'rxjs';
 import { Setting } from '../date-setting.model';
 import { DateSettingService } from '../date-setting.service';
-import { pluck, mapTo, tap, takeUntil, map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-date-setting-container',

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Setting, Booking } from '../../date-setting.model';
 import { Subject, Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class DateSettingPresenterService {
   private save: Subject<Setting>;
   public save$: Observable<Setting>;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private router: Router) {
     this.save = new Subject<Setting>();
     this.save$ = this.save.asObservable();
   }

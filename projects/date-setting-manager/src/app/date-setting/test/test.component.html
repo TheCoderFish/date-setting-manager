@@ -1,3 +1,5 @@
-<p>
-  test works!
-</p>
+<ng-container *ngIf="today > activeDate">
+  {{today}}
+  {{activeDate}}
+  <button (click)="addUpcomingBooking()">Add New Setting</button>
+</ng-container>

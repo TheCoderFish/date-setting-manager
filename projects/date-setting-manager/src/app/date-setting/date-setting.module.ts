@@ -9,6 +9,8 @@ import { SharedModule } from '../shared/shared.module';
 import { TestComponent } from './test/test.component';
 import { HomeContainerComponent } from './home-container/home-container.component';
 import { HomePresentationComponent } from './home-container/home-presentation/home-presentation.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { BookingSuccessComponent } from './booking-success/booking-success.component';
 
 @NgModule({
   declarations: [
@@ -16,12 +18,14 @@ import { HomePresentationComponent } from './home-container/home-presentation/ho
     DateSettingPresentationComponent,
     TestComponent,
     HomeContainerComponent,
-    HomePresentationComponent
+    HomePresentationComponent,
+    BookingSuccessComponent
   ],
   imports: [
     CommonModule,
     DateSettingRoutingModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
   ],
   providers: [
     DateSettingService

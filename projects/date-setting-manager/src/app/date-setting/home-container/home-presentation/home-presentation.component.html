@@ -1,3 +1,20 @@
-<p>
-  home-presentation works!
-</p>
+<p>home-presentation</p>
+
+
+<!-- <div class="sidebar">
+    <p>
+    <ng-container *ngIf="!currentSetting?.active || currentSetting?.upcoming">
+      <label for="active">Active</label>
+    </ng-container>
+  </p>
+  <p>
+    <ng-container *ngIf="currentSetting?.active || currentSetting?.upcoming">
+      <label for="upcoming">Upcoming</label>
+    </ng-container>
+  </p>
+</div> -->
+
+<ng-container *ngIf="!currentSetting?.active || currentSetting?.upcoming">
+  <label for="active" routerLink="add-booking">Active</label>
+</ng-container>
+<router-outlet></router-outlet>
